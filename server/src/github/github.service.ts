@@ -12,6 +12,7 @@ import {
     BUILD_PROJECT_DIRECTORY,
     CLONED_REPOSITORIES_FOLDER_NAME,
     CLONED_REPOSITORIES_FOLDER_PATH,
+    GITHUB_BASE_URL,
     ORG_GH_PAGES_URL,
     ORG_NAME,
     ORG_URL,
@@ -43,7 +44,11 @@ export class GithubService {
         });
     }
 
-    getRepositoryUrl(repositoryName: string): string {
+    getRepositoryUrl(repositoryName: string, owner?: string): string {
+        if (owner) {
+            return `${GITHUB_BASE_URL}/${owner}/${repositoryName}`;
+        }
+
         return `${ORG_URL}/${repositoryName}`;
     }
 

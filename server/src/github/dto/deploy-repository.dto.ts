@@ -1,4 +1,4 @@
-import { IsString } from 'class-validator';
+import { IsOptional, IsString } from 'class-validator';
 
 export class DeployRepositoryDto {
     @IsString()
@@ -6,4 +6,8 @@ export class DeployRepositoryDto {
 
     @IsString()
     name: string;
+
+    @IsOptional()
+    @IsString()
+    owner?: string;
 }

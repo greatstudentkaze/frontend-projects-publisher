@@ -11,10 +11,12 @@ export class GithubController {
     @UsePipes(new ValidationPipe())
     @Post('deploy')
     async deploy(@Body() dto: DeployRepositoryDto) {
-        const url = this.githubService.getRepositoryUrl(dto.name);
-        await this.githubService.cloneRepository(url, dto.name, dto.branch);
+        const urlFrom = this.githubService.getRepositoryUrl(dto.name, dto.owner);
+        const urlTo = this.githubService.getRepositoryUrl(dto.name);
+
+        await this.githubService.cloneRepository(urlFrom, dto.name, dto.branch);
         await this.githubService.buildProject(dto.name);
-        const message = await this.githubService.publishRepository(url, dto.name);
+        const message = await this.githubService.publishRepository(urlTo, dto.name);
 
         return { message };
     }
