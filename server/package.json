@@ -21,13 +21,18 @@
     "test:e2e": "jest --config ./test/jest-e2e.json"
   },
   "dependencies": {
+    "@nestjs/axios": "0.0.3",
     "@nestjs/common": "^8.0.0",
     "@nestjs/config": "1.1.5",
     "@nestjs/core": "^8.0.0",
     "@nestjs/platform-express": "^8.0.0",
     "@typegoose/typegoose": "9.3.1",
+    "bcryptjs": "2.4.3",
     "class-transformer": "0.5.1",
     "class-validator": "0.13.2",
+    "del": "^6.0.0",
+    "gh-pages": "3.2.3",
+    "git-clone": "0.2.0",
     "mongoose": "6.1.1",
     "nestjs-typegoose": "7.1.38",
     "reflect-metadata": "^0.1.13",

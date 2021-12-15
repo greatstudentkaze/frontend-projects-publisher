@@ -5,6 +5,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypegooseModule } from 'nestjs-typegoose';
 import { getMongoConfig } from './configs/mongo.config';
 import { AuthModule } from './auth/auth.module';
+import { GithubModule } from './github/github.module';
 
 @Module({
     imports: [
@@ -15,6 +16,7 @@ import { AuthModule } from './auth/auth.module';
             useFactory: getMongoConfig,
         }),
         AuthModule,
+        GithubModule,
     ],
     controllers: [AppController],
     providers: [AppService],

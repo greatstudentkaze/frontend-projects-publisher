@@ -9,7 +9,7 @@ const getMongoConnectionString = (configService: ConfigService) => {
     const authDb = configService.get('MONGO_AUTH_DATABASE');
 
     // return `mongodb://${login}:${password}@${host}:${port}/${authDb}`;
-    return `mongodb://${login}:${password}@${host}/${authDb}`;
+    return `mongodb+srv://${login}:${password}@${host}/${authDb}`;
 };
 
 const getMongoOptions = () => ({
